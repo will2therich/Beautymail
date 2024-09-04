@@ -134,6 +134,20 @@ class Beautymail implements Mailer
         return $this->mailer->failures();
     }
 
+     /**
+     * Send a new message using a view.
+     *
+     * @param string|array    $view
+     * @param array           $data
+     * @param \Closure|string $callback
+     *
+     * @return void
+     */
+    public function sendNow($mailable, array $data = [], $callback = null)
+    {
+        $this->send($mailable, $data, $callback);
+    }
+
     /**
      * @return mixed
      */
@@ -145,4 +159,5 @@ class Beautymail implements Mailer
             $this->settings['logo']['path']
         );
     }
+
 }
